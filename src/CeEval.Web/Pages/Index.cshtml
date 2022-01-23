@@ -8,3 +8,26 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<div>
+    <h1 class="display-6">Top Sold Products</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>GTIN</th>
+                <th>Product name</th>
+                <th>Quantity</th>
+            <tr>
+        </thead>
+        <tbody>
+        @foreach (var (gtin, name, quantity) in @Model.Products)
+        {
+            <tr>
+                <td>@gtin</td>
+                <td>@name</td>
+                <td>@quantity</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

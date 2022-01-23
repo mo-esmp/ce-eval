@@ -1,20 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CeEval.Shared.Models;
+using CeEval.Shared.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CeEval.Web.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly IMediator _mediator;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(IMediator mediator)
         {
-            _logger = logger;
+            _mediator = mediator;
         }
 
-        public void OnGet()
-        {
+        public IEnumerable<ProductTopSoldDto> Products { get; set; }
 
+        public async Task OnGet()
+        {
+            Products = await _mediator.Send(new ProductTopSoldListQuery(OrderStatus.InProgress, 5));
         }
     }
 }

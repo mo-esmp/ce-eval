@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CeEval.Shared\CeEval.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
