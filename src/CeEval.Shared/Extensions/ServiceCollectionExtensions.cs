@@ -24,8 +24,8 @@ public static class ServiceCollectionExtensions
     /// <returns>A reference to this instance after the operation has completed.</returns>
     public static IServiceCollection AddCeEval(this IServiceCollection services, IConfiguration configuration)
     {
-        //services.AddTransient<IOrderRepository, OrderRepository>();
-        services.AddTransient<IOrderRepository, OrderRepository2>();
+        services.AddTransient<IOrderRepository, OrderRepository>();
+        //services.AddTransient<IOrderRepository, OrderRepository2>();
 
         services.AddTransient<ApiKeyDelegatingHandler>();
 
