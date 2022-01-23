@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  consoleapp:
+    image: ${DOCKER_REGISTRY-}console-app
+    build:
+      context: .
+      dockerfile: src/CeEval.Console/Dockerfile
+    environment:
+      - ChannelEngineApi__ApiKey=${API_KEY}
+      - ASPNETCORE_ENVIRONMENT=Production
+
+  webapp:
+    image: ${DOCKER_REGISTRY-}weba-app
+    ports:
+      - 5005:80
+    build:
+      context: .
+      dockerfile: src/CeEval.Web/Dockerfile
+    environment:
+      - ChannelEngineApi__ApiKey=${API_KEY}
+      - ASPNETCORE_ENVIRONMENT=Production
