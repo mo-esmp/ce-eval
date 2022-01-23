@@ -4,7 +4,7 @@ namespace CeEval.Shared.Models;
 
 public enum OrderStatus
 {
-    [EnumMember(Value = "IN_PROGRESS")]
+    [EnumMember(Value = @"IN_PROGRESS")]
     InProgress = 0,
 
     [EnumMember(Value = @"SHIPPED")]
